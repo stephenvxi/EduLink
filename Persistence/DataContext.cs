@@ -10,6 +10,7 @@ namespace Persistence
         }
 
         public DbSet<School> Schools { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
