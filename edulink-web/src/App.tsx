@@ -21,7 +21,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Header as="h3"><Header.Content>Schools List</Header.Content></Header>
+        <Header as="h3"><Header.Content>Schools List Test</Header.Content></Header>
         <List>
           {this.state.schools.map((school: any) => (
             <List.Item key={school.id}>
