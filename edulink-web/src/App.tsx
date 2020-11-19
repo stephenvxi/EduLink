@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   render () {
-    return (      
+    return (
       <div>
         <Header as="h3"><Header.Content>Schools List</Header.Content></Header>
         <List>
