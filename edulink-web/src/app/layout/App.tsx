@@ -25,7 +25,7 @@ class App extends Component<{}, IState> {
   render () {
     return (
       <div>
-        <Header as="h3"><Header.Content>Schools List</Header.Content></Header>
+        <Header as="h3"><Header.Content>Schools</Header.Content></Header>
         <List>
           {this.state.activities.map((activity) => (
             <List.Item key={activity.id}>
