@@ -1,41 +1,33 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css'
 import { Header, List } from 'semantic-ui-react'
 import { IActivity } from '../models/activity';
+import { NavBar } from '../../features/nav/NavBar';
 
-interface IState {
-  activities: IActivity[]
-}
+const App = () => {
+  const [activities, setActivities] = useState<IActivity[]>([]);
 
-class App extends Component<{}, IState> {
-  readonly state: IState = {
-    activities: []
-  }
-  
-  componentDidMount() {
+  useEffect(() => {
     axios.get<IActivity[]>("http://localhost:5000/api/v1/activities")
       .then((response) => {
-        this.setState({
-          activities: response.data
-        });
-      });
-  }
+        setActivities(response.data);
+      });   
+  }, []);
 
-  render () {
-    return (
-      <div>
-        <Header as="h3"><Header.Content>Schools</Header.Content></Header>
-        <List>
-          {this.state.activities.map((activity) => (
-            <List.Item key={activity.id}>
-              <List.Content>{activity.title}</List.Content>
-            </List.Item>
-          ))}
-        </List>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <NavBar />
+      <Header as="h3"><Header.Content>Schools</Header.Content></Header>
+      <List>
+        {activities.map((activity) => (
+          <List.Item key={activity.id}>
+            <List.Content>{activity.title}</List.Content>
+          </List.Item>
+        ))}
+      </List>
+    </div>
+  );
 }
 
 export default App;
