@@ -9,3 +9,8 @@ body {
 .ui.list .item {
   color: rgb(205, 205, 205) !important;
 }
+
+h1.ui.header {
+  color: rgb(205, 205, 205) !important;
+  font-weight: bold;
+}

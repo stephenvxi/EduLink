@@ -1,7 +1,11 @@
 import React from "react";
 import { Button, Container, Menu } from "semantic-ui-react";
 
-export const NavBar = () => {
+interface IProps {
+  openCreateForm: () => void;
+}
+
+export const NavBar: React.FC<IProps> = ({openCreateForm}) => {
   return (
     <Menu inverted fixed="top">
       <Container>
@@ -9,14 +13,14 @@ export const NavBar = () => {
           <img
             src="/assets/logo.png"
             alt="logo"
-            style={{ marginRight: "16px" }}
+            style={{ marginRight: '16px' }}
           />
           EduLink
         </Menu.Item>
         <Menu.Item>Home</Menu.Item>
         <Menu.Item name="Schools" />
         <Menu.Item>
-          <Button positive content="Create School" />
+          <Button positive content="Create" onClick={openCreateForm} />
         </Menu.Item>
       </Container>
     </Menu>
